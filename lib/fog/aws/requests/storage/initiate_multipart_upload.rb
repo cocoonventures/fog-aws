@@ -44,7 +44,7 @@ module Fog
 
         def initiate_multipart_upload(bucket_name, object_name, options = {})
           verify_mock_bucket_exists(bucket_name)
-          upload_id = UUID.uuid
+          upload_id = UUID.generate
           self.data[:multipart_uploads][bucket_name] ||= {}
           self.data[:multipart_uploads][bucket_name][upload_id] = {
             :parts => {},
